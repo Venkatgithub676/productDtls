@@ -1,1 +1,53 @@
 /* Write your CSS here */
+
+.similar-products-li-con {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+@media screen and (max-width: 768px) {
+  .similar-products-li-con {
+    width: 60%;
+    margin-bottom: 40px;
+  }
+}
+.similar-products-img {
+  width: 100%;
+  border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+  .similar-products-img {
+  }
+}
+.similar-products-title {
+  font-family: 'Roboto';
+  font-size: 18px;
+  margin-bottom: 0;
+}
+.similar-products-para {
+  font-family: 'Roboto';
+  font-size: 20px;
+  margin-top: 10px;
+}
+.price-rating-con {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.similar-products-price {
+  font-family: 'ROboto';
+  font-size: 18px;
+}
+
+.similar-products-rating-con {
+  background-color: #3b82f6;
+  display: flex;
+  align-items: center;
+  width: 60px;
+  border-radius: 5px;
+  justify-content: center;
+  padding: 10px;
+  height: 30px;
+}

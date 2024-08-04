@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
+import SimilarProductItem from '../SimilarProductItem'
 import Header from '../Header'
 import './index.css'
 
@@ -98,7 +99,7 @@ class ProductItemDetails extends Component {
     <div className="failure-con">
       <img
         src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
-        alt="error view"
+        alt="failure view"
         className="failure-img"
       />
       <h1 className="failure-heading">Product Not Found</h1>
@@ -127,42 +128,62 @@ class ProductItemDetails extends Component {
     } = productDetails
 
     return (
-      <div className="img-dtls-con">
-        <img src={imageUrl} alt="" className="main-img" />
-        <div className="matter-con">
-          <h1 className="title">{title}</h1>
-          <h1 className="price">Rs {price}/- </h1>
-          <div className="reviews-rating-con">
-            <div className="rating-con">
-              <span className="rating-span">{rating}</span>
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/star-img.png"
-                alt="star"
-                className="star"
-              />
+      <div className="product-dtls-sub-con">
+        <div className="img-dtls-con">
+          <img src={imageUrl} alt="product" className="main-img" />
+          <div className="matter-con">
+            <h1 className="matter-title">{title}</h1>
+            <p className="price">Rs {price}/- </p>
+            <div className="reviews-rating-con">
+              <div className="rating-con">
+                <p className="rating-span">{rating}</p>
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/star-img.png"
+                  alt="star"
+                  className="star"
+                />
+              </div>
+              <p>{totalReviews} reviews</p>
             </div>
-            <p>{totalReviews} reviews</p>
+            <p className="description">{description}</p>
+            <p className="available-para">
+              <span className="available-span">Available:</span> {availability}
+            </p>
+            <p className="available-para">
+              <span className="available-span">Brand:</span> {brand}
+            </p>
+            <hr className="hr-line" />
+            <div className="quantity-con">
+              <button
+                type="button"
+                data-testid="minus"
+                onClick={this.onClickDash}
+                className="minus-con"
+              >
+                <BsDashSquare className="minus" alt="plus" />
+              </button>
+              <p className="quantity">{quantity}</p>
+              <button
+                type="button"
+                data-testid="plus"
+                onClick={this.onClickPlus}
+                className="plus-con"
+              >
+                <BsPlusSquare className="plus" alt="minus" />
+              </button>
+            </div>
+            <button className="add-to-cart-btn" type="button">
+              ADD TO CART
+            </button>
           </div>
-          <p className="description">{description}</p>
-          <p className="available-para">
-            <span className="available-span">Available:</span> {availability}
-          </p>
-          <p className="available-para">
-            <span className="available-span">Brand:</span> {brand}
-          </p>
-          <hr className="hr-line" />
-          <div className="quantity-con">
-            <div data-testid="minus" className="minus-con">
-              <BsDashSquare className="minus" onClick={this.onClickDash} />
-            </div>
-            <p className="quantity">{quantity}</p>
-            <div data-testid="plus" className="plus-con">
-              <BsPlusSquare className="plus" onClick={this.onClickPlus} />
-            </div>
-          </div>
-          <button className="add-to-cart-btn" type="button">
-            ADD TO CART
-          </button>
+        </div>
+        <div className="similar-products-con">
+          <h1 className="similar-products-name">Similar Products</h1>
+          <ul className="similar-products-ul-con">
+            {similarProducts.map(each => (
+              <SimilarProductItem each={each} key={each.id} />
+            ))}
+          </ul>
         </div>
       </div>
     )

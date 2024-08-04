@@ -1,18 +1,28 @@
 /* Write your CSS here */
 
 .product-item-dtls-main-con {
-  width: 60%;
+  width: 80%;
   margin: auto;
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+@media screen and (max-width: 768px) {
+  .product-item-dtls-main-con {
+    width: 80%;
+  }
+}
 .img-dtls-con {
   display: flex;
   align-items: center;
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .img-dtls-con {
+    flex-direction: column;
+  }
 }
 .main-img {
   width: 400px;
@@ -21,18 +31,37 @@
   margin-right: 30px;
 }
 
+@media screen and (max-width: 768px) {
+  .main-img {
+    width: 100%;
+    margin-top: 30px;
+    height: 400px;
+    margin-right: 0;
+  }
+}
 .matter-con {
   display: flex;
   flex-direction: column;
   max-width: 450px;
 }
 
-.title {
+.matter-title {
   font-family: 'Roboto';
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .matter-title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .matter-title {
+    font-size: 30px;
+  }
+}
 .price {
   font-family: 'Roboto';
   font-size: 20px;
@@ -51,6 +80,7 @@
   justify-content: center;
   padding: 5px;
   margin-right: 20px;
+  height: 30px;
 }
 .rating-span {
   font-family: 'Roboto';
@@ -58,15 +88,17 @@
   font-weight: 500;
   margin-right: 5px;
 }
-
-.star {
-}
-
 .description {
   line-height: 1.5;
   font-family: 'Roboto';
   font-size: 15px;
   color: #616e7c;
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .description {
+    font-size: 12px;
+  }
 }
 
 .available-para {
@@ -96,6 +128,8 @@
 
 .minus-con {
   margin-right: 20px;
+  background-color: transparent;
+  border: none;
 }
 .minus {
   cursor: pointer;
@@ -106,6 +140,8 @@
 }
 .plus-con {
   margin-left: 20px;
+  background-color: transparent;
+  border: none;
 }
 
 .plus {
@@ -136,4 +172,24 @@
 .failure-heading {
   font-family: 'Roboto';
   color: #1e293b;
+}
+
+.similar-products-name {
+  font-family: 'ROboto';
+  font-size: 30px;
+}
+
+.similar-products-ul-con {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .similar-products-ul-con {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
